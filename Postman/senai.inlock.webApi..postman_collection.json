@@ -1,0 +1,63 @@
+{
+	"info": {
+		"_postman_id": "9af181a8-45fe-47f6-9bf1-52a7eeb2c0aa",
+		"name": "senai.inlock.webApi.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Estudio",
+			"item": [
+				{
+					"name": "Estudio.ListarTodos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/estudios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"estudios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Estudio.Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nomeEstudio\": \"teste\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/estudios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"estudios"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
