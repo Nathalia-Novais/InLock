@@ -34,6 +34,7 @@ C:\Users\User1\Desktop\Inlock\Nova pasta\senai.inlock.webApi\senai.inlock.webApi
 C:\Users\User1\Desktop\Inlock\Nova pasta\senai.inlock.webApi\senai.inlock.webApi\obj\Debug\net5.0\ref\senai.inlock.webApi..dll
 C:\Users\User1\Desktop\Inlock\Nova pasta\senai.inlock.webApi\senai.inlock.webApi\obj\Debug\net5.0\senai.inlock.webApi..pdb
 C:\Users\User1\Desktop\Inlock\Nova pasta\senai.inlock.webApi\senai.inlock.webApi\obj\Debug\net5.0\senai.inlock.webApi..genruntimeconfig.cache
+<<<<<<< HEAD
 C:\Users\User1\Desktop\Inlock\Nova pasta\senai.inlock.webApi\senai.inlock.webApi\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
 C:\Users\User1\Desktop\Inlock\Nova pasta\senai.inlock.webApi\senai.inlock.webApi\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\User1\Desktop\Inlock\Nova pasta\senai.inlock.webApi\senai.inlock.webApi\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
@@ -44,3 +45,5 @@ C:\Users\User1\Desktop\InLock\Nova pasta\senai.inlock.webApi\senai.inlock.webApi
 C:\Users\User1\Desktop\InLock\Nova pasta\senai.inlock.webApi\senai.inlock.webApi\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\User1\Desktop\InLock\Nova pasta\senai.inlock.webApi\senai.inlock.webApi\bin\Debug\net5.0\senai.inlock.webApi..xml
 C:\Users\User1\Desktop\InLock\Nova pasta\senai.inlock.webApi\senai.inlock.webApi\obj\Debug\net5.0\senai.inlock.webApi..xml
+=======
+>>>>>>> 41d6a6018690b9fd9499125ecc66a40cc0c8c0bd
