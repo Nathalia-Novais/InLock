@@ -1,4 +1,5 @@
-﻿using senai.inlock.webApi_.Domains;
+﻿using Microsoft.AspNetCore.Authorization;
+using senai.inlock.webApi_.Domains;
 using senai.inlock.webApi_.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -149,6 +150,7 @@ namespace senai.inlock.webApi_.Repositories
                 }
             }
         }
+
 
         public List<UsuarioDomain> ListarTodos()
         {

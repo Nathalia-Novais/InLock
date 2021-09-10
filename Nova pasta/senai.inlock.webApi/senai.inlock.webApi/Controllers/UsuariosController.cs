@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using senai.inlock.webApi_.Domains;
@@ -27,7 +28,7 @@ namespace senai.inlock.webApi_.Controllers
             _usuarioRepository = new UsuarioRepository();
         }
 
-
+        
         [HttpGet]
         public IActionResult Get()
         {

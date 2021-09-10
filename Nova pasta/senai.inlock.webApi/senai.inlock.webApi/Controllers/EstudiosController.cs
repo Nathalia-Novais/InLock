@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using senai.inlock.webApi_.Domains;
 using senai.inlock.webApi_.Interfaces;
@@ -34,6 +35,7 @@ namespace senai.inlock.webApi_.Controllers
         }
 
 
+        [Authorize]
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
