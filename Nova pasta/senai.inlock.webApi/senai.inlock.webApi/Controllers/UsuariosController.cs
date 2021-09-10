@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using senai.inlock.webApi_.Domains;
 using senai.inlock.webApi_.Interfaces;
 using senai.inlock.webApi_.Repositories;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -96,7 +98,35 @@ namespace senai.inlock.webApi_.Controllers
             }
            
 
-            return Ok(usuarioBuscado);
+            //return Ok(usuarioBuscado);
+
+            var minhasClaims = new[]
+           {
+                new Claim(JwtRegisteredClaimNames.Email, usuarioBuscado.email),
+                new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado.idUsuario.ToString()),
+                new Claim(ClaimTypes.Role, usuarioBuscado.idTipoUsuario.ToString()),
+                new Claim("Claim personalizada", "Valor Teste")
+            };
+
+            var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("Usuarios-chave-autenticacao"));
+
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+            var meuToken = new JwtSecurityToken(
+                    issuer: "inlock.webAPI",               
+                    audience: "inlock.webAPI",               
+                    claims: minhasClaims,                
+                    expires: DateTime.Now.AddDays(1),  
+                    signingCredentials: creds        
+                );
+
+            return Ok(new
+            {
+                token = new JwtSecurityTokenHandler().WriteToken(meuToken)
+            });
+
+
+
         }
 
             [HttpDelete("excluir/{id}")]
