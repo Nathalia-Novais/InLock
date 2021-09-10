@@ -14,12 +14,55 @@ namespace senai.inlock.webApi_.Repositories
 
         public void AtualizarIdUrl(int idEstudio, EstudioDomain estudioAtualizado)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(stringConexao))
+            {
+                string queryUpdateUrl = "UPDATE ESTUDIO SET nomeEstudio= @nomeEstudio WHERE idEstudio= @idEstudio";
+
+                using (SqlCommand cmd = new SqlCommand(queryUpdateUrl, con))
+                {
+                    cmd.Parameters.AddWithValue("@nomeEstudio", estudioAtualizado.nomeEstudio);
+                    cmd.Parameters.AddWithValue("@idEstudio", idEstudio);
+
+                    con.Open();
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
         public EstudioDomain BuscarPorId(int idEstudio)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(stringConexao))
+            {
+                string querySelectById = "SELECT * FROM ESTUDIO ";
+
+                con.Open();
+
+                SqlDataReader reader;
+
+                using (SqlCommand cmd = new SqlCommand(querySelectById, con))
+                {
+                    cmd.Parameters.AddWithValue("@idEstudio", idEstudio);
+
+                    reader = cmd.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        EstudioDomain estudioBuscado = new EstudioDomain
+                        {
+                            idEstudio = Convert.ToInt32(reader["idEstudio"]),
+
+                            nomeEstudio= reader["nomeEstudio"].ToString()
+
+
+                        };
+
+                        return estudioBuscado;
+                    }
+
+                    return null;
+                }
+            }
         }
 
         public void Cadastrar(EstudioDomain novoEstudio)
@@ -41,7 +84,19 @@ namespace senai.inlock.webApi_.Repositories
 
         public void Deletar(int idEstudio)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(stringConexao))
+            {
+                string queryDelete = "DELETE FROM ESTUDIO WHERE idEstudio = @idEstudio";
+
+                using (SqlCommand cmd = new SqlCommand(queryDelete, con))
+                {
+                    cmd.Parameters.AddWithValue("@idEstudio", idEstudio);
+
+                    con.Open();
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
         public List<EstudioDomain> ListarTodos()

@@ -33,6 +33,21 @@ namespace senai.inlock.webApi_.Controllers
             return StatusCode(201);
         }
 
+
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
+        {
+            EstudioDomain estudioBuscado = _estudioRepository.BuscarPorId(id);
+
+            if (estudioBuscado == null)
+            {
+                return NotFound("Nenhum estudio encontrado");
+            }
+
+            return Ok(estudioBuscado);
+        }
+
+
         [HttpGet]
         public IActionResult Get()
         {
@@ -40,9 +55,42 @@ namespace senai.inlock.webApi_.Controllers
 
             return Ok(listaEstudio);
 
+        }
 
+        [HttpPut("{id}")]
+        public IActionResult PutIdUrl(int id, EstudioDomain estudioAtualizado)
+        {
+            EstudioDomain estudioBuscado = _estudioRepository.BuscarPorId(id);
 
+            if (estudioBuscado == null)
+            {
+                return NotFound(
+                        new
+                        {
+                            mensagem = "Estudio não encontrado!",
+                            erro = true
+                        }
+                    );
+            }
 
+            try
+            {
+                _estudioRepository.AtualizarIdUrl(id, estudioAtualizado);
+
+                return NoContent();
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro);
+            }
+        }
+
+        [HttpDelete("excluir/{id}")]
+        public IActionResult Delete(int id)
+        {
+            _estudioRepository.Deletar(id);
+
+            return NoContent();
         }
     }
 
